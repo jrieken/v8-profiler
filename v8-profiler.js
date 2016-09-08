@@ -1,9 +1,14 @@
 var pack = require('./package.json');
+
+var runtime = !process.versions.electron
+  ? ['node', 'v' + process.versions.modules, process.platform, process.arch].join('-')
+  : ['electron', 'v' + process.versions.electron.replace(/\.\d+$/, ''), process.platform, process.arch].join('-');
+
 var binding = require('./' + [
   'build',
   'profiler',
   'v' + pack.version,
-  ['node', 'v' + process.versions.modules, process.platform, process.arch].join('-'),
+  runtime,
   'profiler.node'
 ].join('/'));
 
