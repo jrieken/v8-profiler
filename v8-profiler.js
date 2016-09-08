@@ -1,16 +1,5 @@
 var pack = require('./package.json');
-
-var runtime = !process.versions.electron
-  ? ['node', 'v' + process.versions.modules, process.platform, process.arch].join('-')
-  : ['electron', 'v' + process.versions.electron.replace(/\.\d+$/, ''), process.platform, process.arch].join('-');
-
-var binding = require('./' + [
-  'build',
-  'profiler',
-  'v' + pack.version,
-  runtime,
-  'profiler.node'
-].join('/'));
+var binding = require('./build/Release/profiler.node');
 
 var Stream = require('stream').Stream,
     inherits = require('util').inherits;
