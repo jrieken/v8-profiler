@@ -33,7 +33,7 @@
     "chai": "^1.9.1",
     "co": "^4.6.0",
     "mocha": "^1.20.1",
-    "rimraf": "^2.4.4"
+    "rimraf": "^2.6.1"
   },
   "scripts": {
     "test": "mocha --debug"
